@@ -1,0 +1,20 @@
+<div class="hero-wrapper"></div>
+<div class="login-form card p-5">
+  <select class="form-select" id="campus" [(ngModel)]="selectedCampus">
+    <option disabled [selected]>Select Campus</option>
+    <option *ngFor="let cam of campusList" [value]="cam.campusId">
+      {{ cam.name }}
+    </option>
+  </select>
+  <p class="text-light text-center mt-1">
+    Với sinh viên từ K19 đăng nhập với FEID
+  </p>
+  <button class="btn btn-danger mt-3">
+    <i class="fab fa-google-plus-g me-2"></i>
+    Login With Google
+  </button>
+  <button class="btn btn-primary mt-3">
+    <i class="far fa-envelope me-2"></i>
+    Login With FeID
+  </button>
+</div>

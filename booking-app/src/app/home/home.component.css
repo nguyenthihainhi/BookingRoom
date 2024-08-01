@@ -1,0 +1,9 @@
+.hero-wrapper {
+  background-image: url("https://hnm.1cdn.vn/2024/06/21/909090.jpeg");
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-top: -72px;
+}
