@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap} from '@angular/router';
-import { CampusService } from '../../service/campus.service';
-import { Campus } from '../../models/campus';
+import { Campus } from '../../../core/models/campus';
+import { CampusService } from '../../../core/services/campus.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

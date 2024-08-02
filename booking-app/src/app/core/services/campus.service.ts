@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Campus } from '../models/campus';
-import { CampusAPI } from '../Urls/APILinks';
+import { CampusAPI } from '../config/APILinks';
 
 @Injectable({
   providedIn: 'root'

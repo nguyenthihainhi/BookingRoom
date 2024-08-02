@@ -1,5 +1,6 @@
 <div class="hero-wrapper"></div>
 <div class="login-form card p-5">
+  <input type="text" >
   <select class="form-select" id="campus" [(ngModel)]="selectedCampus">
     <option disabled [selected]>Select Campus</option>
     <option *ngFor="let cam of campusList" [value]="cam.campusId">
