@@ -3,6 +3,15 @@
 
 /*Boostrap 5 - vendor*/
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+/*Prime UI -vendor*/
+@import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css";
+@import "../node_modules/primeng/resources/primeng.css";
+
+
+/**Color in the system*/
+@import "../src/app//styles/color.css";
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -29,7 +38,7 @@
   /*
     5. Improve media defaults
   */
-  img, picture, video, canvas, svg {
+  img, picture, video, canvas {
     display: block;
     max-width: 100%;
   }
@@ -50,4 +59,17 @@
   */
   #root, #__next {
     isolation: isolate;
+  }
+
+  /* ul ol list-style */
+
+  ul li, ol li {
+    list-style: none;
+  }
+
+  /* link */
+
+  a {
+    color: currentColor;
+    text-decoration: none;
   }

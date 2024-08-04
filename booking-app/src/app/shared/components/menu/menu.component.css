@@ -1,0 +1,21 @@
+a {
+    color: var(--gray400);
+}
+
+#menu,
+#menu li.nav-item,
+#menu>li+li {
+    width: 100%;
+}
+
+ul li a:hover {
+    background-color: #F1F2F4;
+}
+
+ul li a:hover span{
+    color: #000;
+}
+
+a.collapse_expanded{
+    background-color: #E7F0FA;
+}

@@ -1,0 +1,57 @@
+<main class="container-fluid">
+    <article class="form_login_other position-absolute bg-white p-4 rounded-2">
+        <div class="text-center">
+            <div class="image_logo">
+                <img src="assets/images/logo_image.png" alt="logo_image.png" srcset="" class="w-75" />
+            </div>
+            <p class="mt-2 fs-5 text-secondary fst-italic">Sinh viên cần đặt phòng chúng ta sẽ quản lý họ!</p>
+        </div>
+        <form class="pt-4 needs-validation" [formGroup]="loginForm" (submit)="formSubmiited()" novalidate>
+            <div class="mb-4">
+                <input type="email" class="form-control form-control-lg" id="email" aria-label="form-email"
+                    formControlName="email" aria-describeby="emailhelpId" placeholder="Email" />
+                @if(emailIsValid){
+                <ng-container [ngTemplateOutlet]="validationError"
+                    [ngTemplateOutletContext]="{label: '*Email được nhập không hợp lệ!'}"></ng-container>
+                }@else {
+                <small id="emailhelpId" class="form-text text-muted p-1">*Chúng tôi cần email
+                    được nhập trính
+                    xác!</small>
+                }
+            </div>
+            <div class="mb-4">
+                <input type="password" class="form-control form-control-lg" id="password" formControlName="password"
+                    aria-label="form-password" aria-describeby="passwordhelpId" placeholder="Password" />
+                @if(passwordIsValid){
+                <ng-container [ngTemplateOutlet]="validationError"
+                    [ngTemplateOutletContext]="{label: 'Mật khẩu phải ít nhất 8 ký tự!'}"></ng-container>
+
+                }@else {
+                <small id="passwordhelpId" class="form-text text-muted p-1">*Mật khẩu cần được
+                    nhập đúng!</small>
+                }
+            </div>
+            <div class="mb-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                    <label class="form-check-label" for="autoSizingCheck">
+                        Remember me
+                    </label>
+                </div>
+            </div>
+            <app-button label="Đăng Nhập" ngClass="py-3 w-100 d-block" btnType="submit" bgColor="var(--orange-500)" [disable]="isBtnDisable"
+                colorText="var(--surface-0)">
+                <app-svg-icon [src]="icons.arrowRight" ngProjectAs="pos-right"></app-svg-icon>
+            </app-button>
+        </form>
+        <p class="method_login_other text-center">or</p>
+        <app-button label="Đăng nhập với Google" ngClass="py-2 w-100 d-block" btnType="button" borderr="1px solid gray"
+            bgColor="var(--surface-0)" colorText="var(--surface-500)">
+            <app-svg-icon [src]="icons.googleIc" ngProjectAs="pos-left"></app-svg-icon>
+        </app-button>
+    </article>
+</main>
+
+<ng-template #validationError let-label="label">
+    <small class="form-text text-danger p-1 ">{{label}}</small>
+</ng-template>

@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar" aria-label="Offcanvas navbar large">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between gap-md-5">
+            <a class="navbar-brand" href="#">
+            <img [src]="logo.logoM" alt="logoM.png" width="" height="" class="d-inline-block">
+                <span class="fs-6 ms-3 text-secondary">ADMIN DASHBOARD</span>
+           </a>
+            <div class="humberger_sidebar">
+                <app-svg-icon [src]="icon.humberger"></app-svg-icon>
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+            aria-controls="offcanvasNavbar2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+            aria-labelledby="offcanvasNavbar2Label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body ps-5 justify-content-between">
+                <form class="search w-25">
+                    <app-svg-icon [src]="icon.searchIc" class="fasearch"></app-svg-icon>
+                    <input type="search" class="form-control rounded-5" placeholder="Search">
+                </form>
+
+                <div class="right-side d-flex gap-5 align-items-center justify-content-between">
+                    <div class="dropdown notifiy">
+                        <app-svg-icon [src]="icon.bellingring" class="dropdown-toggle"  id="dropdownMenuButton2"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        ></app-svg-icon>
+                        <div class="sub-menu-notify dropdown-menu"  aria-labelledby="dropdownMenuButton2">
+                            Not news notification!
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <img [src]="logo.avatarBase" alt="logoM.png" width="60" height="60"
+                            class="d-inline-block rounded-circle  dropdown-toggle" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -8,25 +8,27 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { MainLayoutComponent } from './shared/components/layout/main-layout/main-layout.component';
+
 
 @NgModule({
   declarations: [
     AppComponent, 
+    MainLayoutComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     FormsModule,
-    RouterOutlet, 
-    HttpClientModule, 
+    RouterOutlet,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     // SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
-  ],
+    SharedModule,
+],
    providers: [
-    provideClientHydration(),
     provideHttpClient(withFetch()),
    ],
   bootstrap: [AppComponent],

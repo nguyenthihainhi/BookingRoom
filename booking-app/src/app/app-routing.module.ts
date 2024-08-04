@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { MainLayoutComponent } from './shared/components/layout/main-layout/main-layout.component';
 
 
 export const routes: Routes = [
@@ -21,6 +22,7 @@ export const routes: Routes = [
     },
     {
         path: 'admin',
+        component: MainLayoutComponent,
         loadChildren: () => import('./features/admin/admin.module').then((m) => m.AdminModule),
     },
     // {

@@ -1,0 +1,19 @@
+.main_layout_content{
+    display: flex;
+}
+
+.layout-sidebar{
+    position: sticky;
+    left: 0;
+    top: 6rem;
+    height: calc(100vh - 9rem);
+    -webkit-user-select: none;
+    user-select: none;
+    transition: transform .4s cubic-bezier(.05,.74,.2,.99), opacity .3s;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    flex: 0 0 288px;
+    margin-right: 2rem;
+    overflow: auto;
+}
