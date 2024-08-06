@@ -1,0 +1,15 @@
+<app-button
+  label="Đăng nhập với Google"
+  ngClass="py-2 w-100 d-block"
+  btnType="button"
+  borderr="1px solid gray"
+  bgColor="var(--surface-0)"
+  colorText="var(--surface-500)"
+  (click)="handleGoogleLogin()"
+>
+  <app-svg-icon
+    class="p-2"
+    [src]="icons.googleIc"
+    ngProjectAs="pos-left"
+  ></app-svg-icon>
+</app-button>
