@@ -5,7 +5,7 @@
             <img [src]="logo.logoM" alt="logoM.png" width="" height="" class="d-inline-block">
                 <span class="fs-6 ms-3 text-secondary">ADMIN DASHBOARD</span>
            </a>
-            <div class="humberger_sidebar">
+            <div class="humberger_sidebar" (click)="triggerEventHumberger()">
                 <app-svg-icon [src]="icon.humberger"></app-svg-icon>
             </div>
         </div>
@@ -16,21 +16,22 @@
         <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
             aria-labelledby="offcanvasNavbar2Label">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
+                <h5 class="offcanvas-title" id="offcanvasNavbar2Label">ADMIN DASHBOARD</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body ps-5 justify-content-between">
-                <form class="search w-25">
+            <div class="offcanvas-body ps-lg-5">
+                <form class="search">
                     <app-svg-icon [src]="icon.searchIc" class="fasearch"></app-svg-icon>
                     <input type="search" class="form-control rounded-5" placeholder="Search">
                 </form>
 
-                <div class="right-side d-flex gap-5 align-items-center justify-content-between">
+                <div class="right-side d-lg-flex d-sm-inline-flex gap-5 align-items-center justify-content-end">
                     <div class="dropdown notifiy">
-                        <app-svg-icon [src]="icon.bellingring" class="dropdown-toggle"  id="dropdownMenuButton2"
+                        <span class="pi pi-bell" style="color: var(--gray300); font-size: 1.5rem"
+                          id="dropdownMenuButton2"
                         data-bs-toggle="dropdown" aria-expanded="false"
-                        ></app-svg-icon>
+                        ></span>
                         <div class="sub-menu-notify dropdown-menu"  aria-labelledby="dropdownMenuButton2">
                             Not news notification!
                         </div>

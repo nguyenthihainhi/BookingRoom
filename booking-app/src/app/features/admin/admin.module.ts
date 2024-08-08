@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ManageUserComponent } from './manage-user/manage-user.component';
-
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
   declarations: [ManageUserComponent],
   imports: [
-    CommonModule, SharedModule, AdminRoutingModule
+     SharedModule, AdminRoutingModule
   ]
 })
 export class AdminModule { }

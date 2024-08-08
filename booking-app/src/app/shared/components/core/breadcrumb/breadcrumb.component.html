@@ -1,0 +1,17 @@
+<div class="flex justify-content-center">
+    <p-breadcrumb class="" [model]="breadcrumbs" [home]="home" [style]="{border: 'none'}">
+        <ng-template pTemplate="item" let-item>
+            <ng-container *ngIf="item.url; else elseBlock">
+                <a [routerLink]="item.url" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                    true}"> <!-- To add the classes only when the URL matches the link exactly, add the option exact: true: --> 
+                    <span class="text-secondary">{{ item.label }}</span>
+                </a>
+            </ng-container>
+            <ng-template #elseBlock>
+                <a [routerLink]="item.url">
+                    <span class="text-color">{{ item.label }}</span>
+                </a>
+            </ng-template>
+        </ng-template>
+    </p-breadcrumb>
+</div>

@@ -1,1 +1,82 @@
-<p>manage-user works!</p>
+<div class="container-fluid">
+    <div class="row g-2">
+        <div class="col-12">
+            <app-breadcrumb></app-breadcrumb>
+            <div class="title_table ps-4">
+                <p class="display-6  fw-normal py-2 text-uppercase"> Bảng {{label_User()}}</p>
+            </div>
+        </div>
+        <div class="col-12 ps-5">
+            <div class="row ">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 ">
+                    <div class="col-12 d-flex align-items-center justify-content-between mb-4">
+                        <div class="">
+                            <app-button label="Thêm người dùng" bgColor="var(--surface-0)" [outlined]="true"
+                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
+                                ngClass="py-2 px-2 rounded-1"></app-button>
+                            <app-button label="Xóa người dùng" bgColor="var(--surface-0)" [outlined]="true"
+                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
+                                ngClass="py-2 px-2 rounded-1"></app-button>
+                            <app-button label="Xuất người dùng" bgColor="var(--surface-0)" [outlined]="true"
+                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
+                                ngClass="py-2 px-2 rounded-1"></app-button>
+                            <app-button label="Nhập người dùng" bgColor="var(--surface-0)" [outlined]="true"
+                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
+                                ngClass="py-2 px-2 rounded-1"></app-button>
+                        </div>
+                    </div>
+                    <div class="row col-12 col-sm-12 col-lg-12">
+                        <div class="select_tab col-6 col-sm-6 col-md-6 col-lg-6">
+                            <app-select-button [stateOptions]="tabSelectButton"></app-select-button>
+                        </div>
+                        <div class="search col-5 col-sm-5 col-md-5 col-lg-5">
+                            <form class="search">
+                                <app-svg-icon [src]="icon.searchIc" class="fasearch"></app-svg-icon>
+                                <input type="search" class="form-control rounded-1" placeholder="Search">
+                            </form>
+                        </div>
+                        <div class="col-1 col-sm-1 col-md-1 col-lg-1">
+                            <app-button btnType="button" label="Lọc" bgColor="var(--surface-0)" [outlined]="true"
+                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
+                                ngClass="py-2 px-3 lh-lg rounded-1">
+                                <span class="pi pi-filter" ngProjectAs="pos-right"></span>
+                            </app-button>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <app-table [data]="data" [columns]="columns" [customBodyTemplate]="customBodyTemplate"
+                            [addActionTemplate]='addAction' [paginator]="true" [showCurrentPageReport]="true"
+                            sortMode="single" [showCheckboxColumn]="true"
+                            tableStyleClass="custom_user_table"></app-table>
+                        <!-- <ng-template #customBodyTemplate let-rowData>
+                            <tr>
+                                <td>
+                                    <p-tableCheckbox [value]="rowData" ></p-tableCheckbox>
+                                </td>
+                                <td *ngFor="let col of columns">
+                                    {{rowData[col.field]}}
+                                </td>
+                            </tr>
+                        </ng-template> -->
+                        <ng-template #addAction>
+                            <td class="d-flex">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="button" name="" id="" class="btn btn-outline-success">
+                                       <span class="pi pi-pencil"></span>
+                                    </button>
+                                    <button type="button" name="" id="" class="btn btn-outline-danger">
+                                        <span class="pi pi-trash"></span>
+                                     </button>
+                                </div>
+                            </td>
+                        </ng-template>
+
+                    </div>
+                </div>
+                <div class=" col-lg-4 ">
+                    <app-info-user-form [infoUser]="demoUser"></app-info-user-form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

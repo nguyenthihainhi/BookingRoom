@@ -1,3 +1,24 @@
+:host {
+    position: sticky;
+    left: 0;
+    top: 6rem;
+    height: calc(100vh - 6rem);
+    -webkit-user-select: none;
+    user-select: none;
+    transition: transform .4s cubic-bezier(.05, .74, .2, .99), opacity .3s;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    flex: 0 0 335px;
+    margin-right: 2rem;
+    overflow: auto;
+}
+
+:host.menu-close{
+    flex: 0 0 0px;
+    margin-right: 0;
+}
+
 a {
     color: var(--gray400);
 }
@@ -8,14 +29,115 @@ a {
     width: 100%;
 }
 
+ul li a {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    border-radius: 0;
+}
+
+
+
 ul li a:hover {
     background-color: #F1F2F4;
 }
 
-ul li a:hover span{
+ul li a:hover span {
     color: #000;
 }
 
-a.collapse_expanded{
-    background-color: #E7F0FA;
+
+
+.accordion-link[aria-expanded="true"] {
+    background-color: var(--blue200);
+    color: var(--blue600);
+}
+
+.arrow_listener {
+    position: absolute;
+    right: 4%;
+    top: 36%;
+    transform: rotate(270deg);
+    transition: all .3s ease-in-out;
+}
+
+.accordion-link[aria-expanded="true"] .arrow_listener {
+    transform: rotate(360deg);
+}
+
+ul li a+ul {
+    margin-left: 2rem !important;
+}
+
+ul li a+ul li a::before {
+    content: "•";
+    padding: 1rem
+}
+
+/*dark mode | light mode*/
+
+.containerToggle {
+    left: 11%
+}
+
+.checkbox-mode {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    display: none !important;
+
+}
+
+.checkbox-mode-label {
+    background-color: #F1F2F4;
+    width: 16rem;
+    height: 3.5rem;
+    border-radius: 50px;
+    position: relative;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.piSun,
+.piMoon {
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 50px;
+    padding-left: 2px;
+    padding-right: 8px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.piSun::before,
+.piMoon::before {
+    font-size: 1.5rem;
+    display: inline-flex;
+    margin-right: 5px;
+}
+
+.piSun::before {
+    content: "🌞";
+}
+
+.piMoon::before {
+    content: "🌚";
+}
+
+.checkbox-mode-label .ball {
+    background-color: #f9f9f9;
+    width: 7.8rem;
+    height: 3rem;
+    position: absolute;
+    left: 2px;
+    border-radius: 50px;
+    transition: transform 0.3s linear;
+}
+
+.checkbox-mode:checked+.checkbox-mode-label .ball {
+    transform: translateX(8rem);
 }
