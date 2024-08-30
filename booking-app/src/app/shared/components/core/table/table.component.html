@@ -15,7 +15,9 @@ currentPageReportTemplate="Hiển thị từ {first} tới {last} của {totalRe
 [selectionMode]="selectionMode"
 [rowHover]="true"
 [tableStyleClass]="tableStyleClass"
-[rowsPerPageOptions]="[10, 25, 50]">
+[rowsPerPageOptions]="[10, 25, 50]"
+(onRowSelect)="getChoooseRow($event)"
+>
   
   
     <ng-template pTemplate="header" let-columns>
@@ -27,11 +29,14 @@ currentPageReportTemplate="Hiển thị từ {first} tới {last} của {totalRe
             [pSortableColumn]="col.sortable ? col.field : null" style="min-width:15rem"> 
                 {{col.header}} <p-sortIcon *ngIf="col.sortable" field="{{col.field}}"/>
             </th>
+            <th *ngIf="addActionTemplate">
+                Hành động
+            </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <ng-template #defaultTemplate>
-            <tr [pSelectableRow]="rowData">
+                <tr [pSelectableRow]="rowData">
                 <td *ngIf="showCheckboxColumn">
                     <p-tableCheckbox [value]="rowData" />
                 </td>
@@ -40,8 +45,7 @@ currentPageReportTemplate="Hiển thị từ {first} tới {last} của {totalRe
                 >
                     <span>{{rowData[col.field]}}</span>
                 </td>
-                <ng-container *ngTemplateOutlet="addActionTemplate!!"/>
-                
+                <ng-container *ngTemplateOutlet="addActionTemplate!!;  context: {$implicit: rowData}"/>
             </tr>
         </ng-template>
         <ng-container

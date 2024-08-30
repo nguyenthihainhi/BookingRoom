@@ -1,15 +1,15 @@
-<div class="wrapper_info bg-white rounded-3">
-    <div class="title_info">
-        <p class="fs-5 ps-1">Thông tin về người dùng</p>
-    </div>
-    <div class="avatar_info pt-3 pb-4">
+<div class="wrapper_info rounded-3">
+    
+    <div class="avatar_info pt-3 pb-4 position-relative">
+        <div class="background_cover rounded-top">
+        </div>
         <img [src]="infoUser()?.avatar || 'assets/bases/avatar_base.png'" alt="avatar_image.png"
-            class="img-thumbnail rounded-4 mx-auto" width="300px" height="300px" />
+            class="position-absolute rounded-circle border border-3 border-light-subtle " width="120px" height="120px" />
     </div>
     <div class="describe_info">
         <div class="content_info d-flex align-items-center justify-content-between">
             <div class="content_info_personal">
-                <p class="fs-5 fw-semibold mb-0">{{infoUser()?.name}}</p>
+                <p class="fs-3 fw-semibold mb-0">{{infoUser()?.name}}</p>
                 <p class="fw-normal">{{infoUser()?.profile.major}}</p>
             </div>
             <div class="content_social_live">
@@ -39,7 +39,7 @@
 
                 <!-- NOT FOUND -->
                 <div class="thumbnail_404">
-                    <img src="assets/images/404.png" class=" mx-auto" alt="404.png" />
+                    <img src="assets/images/404.png" class=" mx-auto" alt="404.png"  height="150px" width="150px"/>
                 </div>
 
                 <!-- EXIST  -->

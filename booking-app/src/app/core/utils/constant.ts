@@ -1,7 +1,4 @@
-export const environment = {
-  apiUrl: "http://localhost:3000",
-  google_clientID: "122263316773-rujio55kh3aqaqkbd85u7hbgfs4sujs3.apps.googleusercontent.com"
-}
+import { AdminSlugs, ApiType, AuthSlugs, CommonSlugs, StaffSlugs, StudentSlugs } from "../config/api.config";
 
 export enum STRING {
   ACCESS_TOKEN = 'access_token',
@@ -27,3 +24,10 @@ export enum USER_ROLE {
 }
 
 
+export const ApiSlugs: Record<ApiType, Record<string, string>> = {
+  common: CommonSlugs,
+  auth: AuthSlugs,
+  admin: AdminSlugs,
+  student: StudentSlugs,
+  staff: StaffSlugs,
+};

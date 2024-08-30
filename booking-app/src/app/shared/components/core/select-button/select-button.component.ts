@@ -1,5 +1,5 @@
 import { Component, input, signal } from '@angular/core';
-import { SELECTBUTTON, TABTABLE } from '../../../../core/config/tableUser.config';
+import { SELECTBUTTON, TABTABLEUSER } from '../../../../core/config/tableUser.config';
 import { SelectButtonChangeEvent } from 'primeng/selectbutton';
 
 @Component({

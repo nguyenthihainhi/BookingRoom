@@ -1,0 +1,19 @@
+
+<p-confirmDialog #cd>
+    <ng-template pTemplate="headless" let-message>
+        <div class="flex flex-column align-items-center p-5 surface-overlay border-round">
+            <div class="border-circle bg-primary inline-flex justify-content-center align-items-center h-6rem w-6rem">
+                <ng-container *ngTemplateOutlet="iconLabelRef"></ng-container>
+            </div>
+            <span class="font-bold text-2xl block mb-2 mt-4">
+                {{ message.header }}
+            </span>
+            <p class="mb-0">{{ message.message }}</p>
+            <div class="flex align-items-center gap-2 mt-4">
+               <!-- button confirm  -->
+                <ng-container *ngTemplateOutlet="actionConfirmRef; context: {$implicit: cd}"></ng-container>
+                
+            </div>
+        </div>
+    </ng-template>
+</p-confirmDialog>

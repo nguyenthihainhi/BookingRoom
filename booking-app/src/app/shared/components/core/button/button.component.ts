@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -23,5 +23,12 @@ export class ButtonComponent {
   @Input() borderr: string = 'none';
   @Input() colorText: string = 'var(--highlight-text-color)';
   @Input() bgColor: string = 'var(--highlight-bg)';
+
+  @Output('handleClickButton') eventClick: EventEmitter<any> = new EventEmitter();
+
+  handleClick(e: Event): void {
+    // console.log(e);
+    this.eventClick.emit(e);
+  }
 
 }

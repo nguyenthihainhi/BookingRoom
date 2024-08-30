@@ -7,8 +7,10 @@ import { AppRoutingModule, routes } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './shared/components/modal/shared.module';
 import { MainLayoutComponent } from './shared/components/layout/main-layout/main-layout.component';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { MainLayoutComponent } from './shared/components/layout/main-layout/main
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    ConfirmDialogModule,
     // SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -30,6 +33,10 @@ import { MainLayoutComponent } from './shared/components/layout/main-layout/main
 ],
    providers: [
     provideHttpClient(withFetch()),
+
+    //primeng provider
+    MessageService,
+    ConfirmationService, 
    ],
   bootstrap: [AppComponent],
 })

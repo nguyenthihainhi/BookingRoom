@@ -1,4 +1,4 @@
-export enum TABTABLE {
+export enum TABTABLEUSER {
     ALL = 'người dùng',
     STUDENT = 'sinh viên',
     EMPLOYEE = 'Nhân viên',

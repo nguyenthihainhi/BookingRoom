@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../shared/components/modal/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { TableModule } from 'primeng/table';

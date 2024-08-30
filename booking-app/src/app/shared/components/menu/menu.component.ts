@@ -10,7 +10,7 @@ import { HeaderService } from '../../../core/services/header.service';
   // encapsulation: ViewEncapsulation.None,
 })
 export class MenuComponent {
-  items: MenuItem[] = [];
+  items: MenuItem[] = []
   isShowSidebar: boolean = false;
   icon = icons;
  private headerService = inject(HeaderService);

@@ -2,16 +2,19 @@
     <div class="d-flex flex-column align-items-center align-items-sm-start px-1 pt-4 text-white min-vh-100">
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li class="nav-item">
-                <a href="#" class="nav-link align-middle">
-                    <span class="pi pi-send"></span>
+                <a href="#" class="nav-link align-middle"  pTooltip="Trang điều khiển" tooltipPosition="right"
+                 [tooltipDisabled]=!isShowSidebar>
+                    <span class="pi pi-desktop"></span>
                     <span class="ms-3 d-none d-sm-inline">Trang điều khiển</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#submenu1" data-bs-toggle="collapse" class="accordion-link nav-link align-middle position-relative">
-                    <span class="pi pi-send"></span>
+                <a href="#submenu1" data-bs-toggle="collapse" pTooltip="Quản lý người dùng" tooltipPosition="right"
+                [tooltipDisabled]=!isShowSidebar
+                    class="accordion-link nav-link align-middle position-relative">
+                    <span class="pi pi-user"></span>
                     <span class="ms-3 d-none d-sm-inline">Quản lý người dùng</span>
-                    <span class="pi pi-chevron-down arrow_listener"></span>
+                    <span class="pi pi-chevron-down  arrow_listener"></span>
                 </a>
                 <!-- collapse show -->
                 <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
@@ -25,16 +28,19 @@
                     </li>
                 </ul>
             </li>
-             <li class="nav-item">
-                <a href="#" class="nav-link align-middle">
+            <li class="nav-item">
+                <a href="#" class="nav-link align-middle" pTooltip="Link 1" tooltipPosition="right"
+                [tooltipDisabled]=!isShowSidebar>
                     <span class="pi pi-send"></span>
-                    <span class="ms-1 d-none d-sm-inline">Link1</span></a>
+                    <span class="ms-3 d-none d-sm-inline">Link1</span></a>
             </li>
             <li class="nav-item">
-                <a href="#submenu2" data-bs-toggle="collapse" class="accordion-link nav-link align-middle position-relative">
-                    <span class="pi pi-send"></span>
-                    <span class="ms-1 d-none d-sm-inline">Quản lý vai trò</span>
-                    <span class="pi pi-chevron-down arrow_listener"></span>
+                <a href="#submenu2" data-bs-toggle="collapse" pTooltip="Quản lý vai trò" tooltipPosition="right"
+                [tooltipDisabled]=!isShowSidebar
+                    class="accordion-link nav-link align-middle position-relative">
+                    <span class="pi pi-inbox"></span>
+                    <span class="ms-3 d-none d-sm-inline">Quản lý vai trò</span>
+                    <span class="pi  pi-chevron-down arrow_listener"></span>
                 </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                     <li class="w-100">
@@ -46,9 +52,11 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="#submenu3" data-bs-toggle="collapse" class="accordion-link nav-link align-middle position-relative">
-                    <span class="pi pi-send"></span>
-                    <span class="ms-1 d-none d-sm-inline">Quản lý tòa nhà</span>
+                <a href="#submenu3" data-bs-toggle="collapse" pTooltip="Quản lý tòa nhà" tooltipPosition="right"
+                [tooltipDisabled]=!isShowSidebar
+                    class="accordion-link nav-link align-middle position-relative">
+                    <span class="pi pi-home"></span>
+                    <span class="ms-3 d-none d-sm-inline">Quản lý tòa nhà</span>
                     <span class="pi pi-chevron-down arrow_listener"></span>
                 </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
@@ -68,15 +76,5 @@
             </li>
         </ul>
         <hr>
-        <div class="pb-3">
-            <div class="containerToggle row justify-content-center position-relative">
-                <input type="checkbox" class="checkbox-mode" id="checkbox-mode">
-                <label for="checkbox-mode" class="checkbox-mode-label">
-                    <span class="piSun text-white bg-black">Sáng</span>
-                    <span class="piMoon text-dark bg-white">Tối</span>
-                    <span class="ball shadow-sm"></span>
-                </label>
-            </div>
-        </div>
     </div>
 </div>

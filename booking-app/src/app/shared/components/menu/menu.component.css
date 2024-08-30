@@ -10,13 +10,14 @@
     flex-direction: column;
     padding: 0;
     flex: 0 0 335px;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     overflow: auto;
 }
 
 :host.menu-close{
-    flex: 0 0 0px;
+    flex: 0 0 70px;
     margin-right: 0;
+    overflow: hidden;
 }
 
 a {
@@ -47,6 +48,12 @@ ul li a:hover span {
 }
 
 
+:host.menu-close ul li a span:nth-of-type(2),
+:host.menu-close ul li a span:nth-of-type(3) {
+    display: none !important;
+}
+
+
 
 .accordion-link[aria-expanded="true"] {
     background-color: var(--blue200);
@@ -74,70 +81,4 @@ ul li a+ul li a::before {
     padding: 1rem
 }
 
-/*dark mode | light mode*/
 
-.containerToggle {
-    left: 11%
-}
-
-.checkbox-mode {
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: -50%;
-    display: none !important;
-
-}
-
-.checkbox-mode-label {
-    background-color: #F1F2F4;
-    width: 16rem;
-    height: 3.5rem;
-    border-radius: 50px;
-    position: relative;
-    padding: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.piSun,
-.piMoon {
-    font-size: 1.5rem;
-    font-weight: 500;
-    border-radius: 50px;
-    padding-left: 2px;
-    padding-right: 8px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-}
-
-.piSun::before,
-.piMoon::before {
-    font-size: 1.5rem;
-    display: inline-flex;
-    margin-right: 5px;
-}
-
-.piSun::before {
-    content: "🌞";
-}
-
-.piMoon::before {
-    content: "🌚";
-}
-
-.checkbox-mode-label .ball {
-    background-color: #f9f9f9;
-    width: 7.8rem;
-    height: 3rem;
-    position: absolute;
-    left: 2px;
-    border-radius: 50px;
-    transition: transform 0.3s linear;
-}
-
-.checkbox-mode:checked+.checkbox-mode-label .ball {
-    transform: translateX(8rem);
-}

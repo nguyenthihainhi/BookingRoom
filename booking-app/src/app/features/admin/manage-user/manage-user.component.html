@@ -3,80 +3,134 @@
         <div class="col-12">
             <app-breadcrumb></app-breadcrumb>
             <div class="title_table ps-4">
-                <p class="display-6  fw-normal py-2 text-uppercase"> Bảng {{label_User()}}</p>
+                <p class="display-6  fw-normal py-2 ms-4 text-uppercase"> Bảng {{label_User()}}</p>
             </div>
         </div>
-        <div class="col-12 ps-5">
+        <div class="col-12 px-5">
             <div class="row ">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-8 ">
-                    <div class="col-12 d-flex align-items-center justify-content-between mb-4">
-                        <div class="">
-                            <app-button label="Thêm người dùng" bgColor="var(--surface-0)" [outlined]="true"
-                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
-                                ngClass="py-2 px-2 rounded-1"></app-button>
-                            <app-button label="Xóa người dùng" bgColor="var(--surface-0)" [outlined]="true"
-                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
-                                ngClass="py-2 px-2 rounded-1"></app-button>
-                            <app-button label="Xuất người dùng" bgColor="var(--surface-0)" [outlined]="true"
-                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
-                                ngClass="py-2 px-2 rounded-1"></app-button>
-                            <app-button label="Nhập người dùng" bgColor="var(--surface-0)" [outlined]="true"
-                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
-                                ngClass="py-2 px-2 rounded-1"></app-button>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row  mb-4">
+                        <!-- <div class="">
+                        </div> -->
+                        <div class="tabView col-12 col-md-12 col-lg-4 mb-sm-3 mb-md-3">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Xem tất cả</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Sinh viên</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Nhân viên</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Nhân viên quản lý</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-5 offset-lg-3  text-lg-end">
+                                <!-- <p-button type="button" label="Xóa người dùng" class="col-4 col-sm-4 col-md-4 col-lg-4"
+                                    styleClass="text-light bg-danger rounded-1"  /> -->
+                                        <button
+                                        type="button"
+                                        name=""
+                                        id=""
+                                        class="btn btn-dark me-3 position-relative"
+                                        (click)="toggleFilter()"
+                                    >
+                                    <span class="pi pi-filter"></span>
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        9
+                                        <span class="visually-hidden">unread messages</span>
+                                      </span>
+                                    </button>
+                                        <button
+                                        type="button"
+                                        name=""
+                                        id=""
+                                        [ngStyle]="{'border': '2px solid var(--blue600)'}"
+                                        class="btn rounded-1"
+                                        (click)="openModalAddUser()"
+                                    >
+                                        Thêm người dùng
+                                    </button>
+                                       
+
                         </div>
                     </div>
-                    <div class="row col-12 col-sm-12 col-lg-12">
-                        <div class="select_tab col-6 col-sm-6 col-md-6 col-lg-6">
-                            <app-select-button [stateOptions]="tabSelectButton"></app-select-button>
+                     <!-- filter user  -->
+                     <div [ngClass]="['filter_user row mb-4']" *ngIf="isShowFilter">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4  mb-3">
+                            <app-multi-select [data]="semesters" placeholder="Khóa năm" styleClass="w-100"></app-multi-select>
                         </div>
-                        <div class="search col-5 col-sm-5 col-md-5 col-lg-5">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4  mb-3">
+                            <app-multi-select [data]="genders" placeholder="Giới tính"  styleClass="w-100"></app-multi-select>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4  mb-3">
+                            <app-multi-select [data]="provinces" placeholder="Địa chỉ" [isGroup]="true"  styleClass="w-100"></app-multi-select>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-3">
+                            <app-multi-select [data]="majors" placeholder="Chuyên ngành" [isGroup]="true"  styleClass="w-100"></app-multi-select>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-3">
+                            <app-multi-select [data]="status" placeholder="Trạng thái"  styleClass="w-100"></app-multi-select>
+                        </div>
+                    </div>
+                     <!-- filter user  -->
+
+                    <div class="row justify-content-between rounded-2 py-3">
+                        <div class="col-5 col-sm-5 col-md-5 col-lg-5">
+                            <p-button type="button" icon="pi pi-chevron-left" [disabled]="true"
+                                styleClass="p-button-text" />
+                            <p-button type="button" icon="pi pi-refresh" styleClass="p-button-text" />
+                            <p-button type="button" icon="pi pi-chevron-right" [disabled]="true"
+                                styleClass="p-button-text" />
+                        </div>
+
+                        <div class="search col-3 col-sm-3 col-md-3 col-lg-3">
                             <form class="search">
                                 <app-svg-icon [src]="icon.searchIc" class="fasearch"></app-svg-icon>
                                 <input type="search" class="form-control rounded-1" placeholder="Search">
                             </form>
                         </div>
-                        <div class="col-1 col-sm-1 col-md-1 col-lg-1">
-                            <app-button btnType="button" label="Lọc" bgColor="var(--surface-0)" [outlined]="true"
-                                borderr="1px solid  var(--gray400)" colorText="var(--gray900)"
-                                ngClass="py-2 px-3 lh-lg rounded-1">
-                                <span class="pi pi-filter" ngProjectAs="pos-right"></span>
-                            </app-button>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <app-table [data]="data" [columns]="columns" [customBodyTemplate]="customBodyTemplate"
-                            [addActionTemplate]='addAction' [paginator]="true" [showCurrentPageReport]="true"
-                            sortMode="single" [showCheckboxColumn]="true"
-                            tableStyleClass="custom_user_table"></app-table>
-                        <!-- <ng-template #customBodyTemplate let-rowData>
-                            <tr>
-                                <td>
-                                    <p-tableCheckbox [value]="rowData" ></p-tableCheckbox>
-                                </td>
-                                <td *ngFor="let col of columns">
-                                    {{rowData[col.field]}}
-                                </td>
-                            </tr>
-                        </ng-template> -->
-                        <ng-template #addAction>
-                            <td class="d-flex">
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button type="button" name="" id="" class="btn btn-outline-success">
-                                       <span class="pi pi-pencil"></span>
-                                    </button>
-                                    <button type="button" name="" id="" class="btn btn-outline-danger">
-                                        <span class="pi pi-trash"></span>
-                                     </button>
-                                </div>
-                            </td>
-                        </ng-template>
+
 
                     </div>
-                </div>
-                <div class=" col-lg-4 ">
-                    <app-info-user-form [infoUser]="demoUser"></app-info-user-form>
+                   
+                    <div class="col-12">
+                        <app-table [data]="data" [columns]="columns" 
+                            [addActionTemplate]='addAction' [paginator]="true" [showCurrentPageReport]="true"
+                            sortMode="single" [showCheckboxColumn]="true" tableStyleClass="custom_user_table"
+                            (handlechooseRow)="getDetailRecord($event)"
+                            >
+                        </app-table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+<!-- col action of user table -->
+<ng-template #addAction let-rowData>
+    <td class="d-flex">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" name="" id="" class="btn btn-outline-success"
+            (click)="openModalUpdateUser(rowData)">
+                <span class="pi pi-pencil"></span>
+            </button>
+            <button type="button" name="" id="" class="btn btn-outline-danger"
+                (click)="handleConfirmDeleteRecord(rowData)">
+                <span class="pi pi-trash"></span>
+            </button>
+        </div>
+    </td>
+</ng-template>
+
+
+
+<!-- get detail user -->

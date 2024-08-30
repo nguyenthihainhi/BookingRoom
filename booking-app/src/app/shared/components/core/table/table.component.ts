@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { cellStyles, ItableColumn, ItableItem } from '../../../../core/config/table.config';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { cellStyles, ItableColumn, ITableItem, TableUser } from '../../../../core/config/table.config';
+import { TableRowSelectEvent } from 'primeng/table';
 
 @Component({
   selector: 'app-table',
@@ -10,13 +11,13 @@ import { cellStyles, ItableColumn, ItableItem } from '../../../../core/config/ta
 export class TableComponent implements OnInit {
 
   @Input()
-  data: ItableItem[] = [];
+  data: ITableItem[] = [];
 
   @Input()
   columns: ItableColumn[] = [];
 
   @Input()
-  customBodyTemplate!: TemplateRef<any>;
+  customBodyTemplate?: TemplateRef<any>;
 
   @Input()
   addActionTemplate?: TemplateRef<any>;
@@ -36,15 +37,21 @@ export class TableComponent implements OnInit {
   sortMode: 'single' | 'multiple' = 'single';
 
   @Input()
-  selectionMode: 'single' | 'multiple' = 'single';
+  selectionMode: 'single' | 'multiple' = 'multiple';
   @Input()
   showCheckboxColumn: boolean = false;
 
   @Input()
   tableStyleClass : string = '';
 
+  @Output()
+  handlechooseRow = new EventEmitter<any>();
+
+  
+
+
 // checkbox work?
-  selectedData!: ItableItem[];
+  selectedData!: ITableItem[];
 
 
   ngOnInit(): void {
@@ -80,12 +87,17 @@ export class TableComponent implements OnInit {
 
   // custom style cell in table
 
-  getCellClass(rowData: any, field: string): string | string[] {
+  getCellClass(rowData: any, field: any): string | string[] {
     const fieldStyles = cellStyles[field];
     if (fieldStyles) {
       return fieldStyles[rowData[field]] || '';
     }
     return '';
+  }
+
+
+  getChoooseRow(e: TableRowSelectEvent){
+   this.handlechooseRow.emit(e.data as TableUser);
   }
 
 }

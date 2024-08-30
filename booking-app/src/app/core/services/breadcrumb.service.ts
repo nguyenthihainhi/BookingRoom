@@ -73,9 +73,9 @@ export class BreadcrumbService {
     }
     // console.log(children);
     for (const child of children) {
-      console.log(child);
+      // console.log(child);
       if (child.snapshot.data['breadcrumb']) {
-        const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
+        // const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
         const arrbreadCrumb_available = child.snapshot.url.map((_, index) => {
           let url = child.snapshot.url.slice(0, index + 1).join('/');
           /**
@@ -83,7 +83,7 @@ export class BreadcrumbService {
            */
           return { label: ROUTERADMIN[url], url: `/admin/${url}` }
         });
-        console.log(arrbreadCrumb_available);
+        // console.log(arrbreadCrumb_available);
         breadcrumbs.push(...arrbreadCrumb_available);
       }
       return this.buildBreadcrumb(child, url, breadcrumbs);

@@ -1,0 +1,16 @@
+
+
+::ng-deep .p-dropdown.p-component.p-inputwrapper{
+    width: 100%;
+}
+
+:host ::ng-deep  .p-togglebutton.p-button.p-ripple.p-element{
+    background-color: rgb(255 178 178);
+    color: #d12222;
+    
+    
+}
+:host ::ng-deep  .p-togglebutton.p-button.p-highlight{
+    background-color: var(--green300) !important;
+    color: var(--green700) !important;
+}

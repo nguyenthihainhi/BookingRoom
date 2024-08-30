@@ -9,10 +9,15 @@
     }
  }
 
-.title_info>p {
-    border-left: 1rem solid var(--oragne600);
+.background_cover{
+    height: 8rem;
+    background: #100f0c;
 }
 
+.avatar_info img{
+ top: 4rem;
+ left: 1rem
+}
 .describe_info {
     margin-top: 1rem;
 }

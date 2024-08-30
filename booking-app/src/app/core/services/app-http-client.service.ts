@@ -1,9 +1,9 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { catchError, Observable, throwError } from 'rxjs';
 import { BaseResponseApi } from '../config/api.config';
 import { IDummy } from '../config';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ import { IDummy } from '../config';
  * purpose: create a base class that communicates the api with the backend
  */
 export class AppHttpClientService {
-  static prefix = environment.apiUrl;
+    static prefix = environment.apiUrl;
 
   constructor(
     protected httpClient: HttpClient,

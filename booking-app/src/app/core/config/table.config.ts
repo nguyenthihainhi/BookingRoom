@@ -1,4 +1,5 @@
 import { IDummy } from ".";
+import { USER_ROLE } from "../utils/constant";
 
 export interface ItableColumn {
     field: string,
@@ -6,9 +7,24 @@ export interface ItableColumn {
     sortable: boolean
 }
 
-export interface ItableItem extends IDummy {
 
+
+export interface ITableItem  extends IDummy {
 }
+
+export interface TableUser {
+    id: string,
+    name: string,
+    email: string,
+    phone: string,
+    code?: string,
+    gender: string,
+    dateJoin: string,
+    role: string,
+    status?: string
+}
+
+
 
 
 // config css dynamic 
@@ -18,8 +34,8 @@ export const cellStyles: { [key: string]: IDummy } = {
         'không hoạt động': 'iStatus-style-cell'
     },
     role: {
-        'sinh viên': 'student-style-cell',
-        'nhân viên': 'staff-style-cell',
-        'nhân viên quản lý': 'headstaff-style-cell'
+        [USER_ROLE.STUDENT]: 'student-style-cell',
+        [USER_ROLE.STAFF]: 'staff-style-cell',
+        [USER_ROLE.HEADSTAFF]: 'headstaff-style-cell'
     },
 };

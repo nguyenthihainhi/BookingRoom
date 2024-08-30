@@ -5,27 +5,30 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 /*Prime UI -vendor*/
-@import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css";
 @import "../node_modules/primeng/resources/primeng.css";
 
 /* Prime Icon*/
 @import "../node_modules/primeicons/primeicons.css";
+
+
+
+
 /**Color in the system*/
 @import "../src/app//styles/color.css";
 
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
+/* *, *::before, *::after {
     box-sizing: border-box;
-  }
+  } */
   /*
     2. Remove default margin
   */
-  * {
+  /* * {
     margin: 0;
     padding: 0;
-  }
+  } */
   /*
     Typographic tweaks!
     3. Add accessible line-height

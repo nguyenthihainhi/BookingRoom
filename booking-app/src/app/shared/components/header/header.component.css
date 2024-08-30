@@ -13,7 +13,7 @@
 */
 
 .offcanvas-body .search {
-    flex: 3
+    flex: 15rem;
 }
 
 .search {
@@ -52,6 +52,13 @@ right-side
 
 .right-side {
     flex: 1
+}
+
+/* dark mode , light mode  */
+::ng-deep .p-togglebutton.p-button.p-highlight {
+    background: #fff;
+    border-color: #939393;
+    color: #ffffff;
 }
 
 .notifiy,
