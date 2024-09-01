@@ -1,0 +1,65 @@
+<div class="wrapper_info rounded-3">
+    
+    <div class="avatar_info pt-3 pb-4 position-relative">
+        <div class="background_cover rounded-top">
+        </div>
+        <img [src]="infoUser()?.avatar || 'assets/bases/avatar_base.png'" alt="avatar_image.png"
+            class="position-absolute rounded-circle border border-3 border-light-subtle " width="120px" height="120px" />
+    </div>
+    <div class="describe_info">
+        <div class="content_info d-flex align-items-center justify-content-between">
+            <div class="content_info_personal">
+                <p class="fs-3 fw-semibold mb-0">{{infoUser()?.name}}</p>
+                <p class="fw-normal">{{infoUser()?.profile.major}}</p>
+            </div>
+            <div class="content_social_live">
+                <app-button label="Trao đổi" btnType="button" ngClass="py-2 px-2 rounded-2" bgColor="var(--surface-0)"
+                    colorText="var(--oragne600)" [outlined]="true" borderr="1px solid  var(--oragne400)">
+                    <span class="pi pi-twitch me-1" ngProjectAs="pos-left"></span>
+                </app-button>
+            </div>
+        </div>
+        <div class="content_info">
+            <div class="content_info_common">
+                <div class="content_info_title">
+                    <h6 class="fs-6 fw-semibold">Thông tin khác</h6>
+                </div>
+                <!-- STUDENT -->
+                <p>Mã sinh viên: <span>{{infoUser()?.profile.codeStudent}}</span></p>
+                <p>Khóa: <span>{{infoUser()?.profile.keyYear}}</span></p>
+                <p>Năm tốt nghiệp: <span>{{infoUser()?.profile.graduationYear}}</span></p>
+                <p>Số điện thoại: <span>{{infoUser()?.phone}}</span></p>
+                <p>Email: <span>{{infoUser()?.email}}</span></p>
+            </div>
+        </div>
+        <div class="content_info">
+            <!-- STUDENT -->
+            <div class="content_info_title">
+                <h6 class="fs-6 fw-semibold">Lịch sử đặt phòng</h6>
+
+                <!-- NOT FOUND -->
+                <div class="thumbnail_404">
+                    <img src="assets/images/404.png" class=" mx-auto" alt="404.png"  height="150px" width="150px"/>
+                </div>
+
+                <!-- EXIST  -->
+                <!-- <div class="history_room_group mt-3 d-flex align-items-center justify-content-between">
+                    <div class="tag_room history_room_item border border-3 border-primary d-inline-block rounded-3">
+                        <span class="pi pi-tag border p-2 text-primary" [ngStyle]="{'font-size': '2rem'}"></span>
+                    </div>
+                    <div class="info_room history_room_item">
+                        <p class="fw-semibold">Phòng 301L_Alpha</p>
+                        <p class="pharagraph_under_room">
+                            <span>Phòng học</span>
+                            <span class="bettween_room_slot">Slot 3</span>
+                            <span>Ngày 3, tháng 4, 2021</span>
+                        </p>
+                    </div>
+                    <p class="history_room_item text-primary">
+                        <a href="#">Xem thêm </a> <span class="pi pi-arrow-right"></span>
+                    </p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

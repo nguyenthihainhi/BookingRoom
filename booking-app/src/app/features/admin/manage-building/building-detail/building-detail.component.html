@@ -1,0 +1,116 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <app-breadcrumb></app-breadcrumb>
+      <div class="title_table ps-4 d-flex justify-content-between">
+        <p class="display-6 fw-normal py-3 text-uppercase">
+          Tòa nhà {{ building?.buildingName }}
+        </p>
+        <!-- <app-button
+          label="Thêm tòa nhà"
+          bgColor="var(--blue100)"
+          [outlined]="true"
+          borderr="1px solid  var(--blue50)"
+          colorText="var(--blue500)"
+          ngClass="py-3 px-5 rounded-1"
+        ></app-button> -->
+      </div>
+    </div>
+    <div class="col-12 ps-5">
+      <div class="card mt-5 mb-5">
+        <div class="row">
+          <div class="col-6 col-md-6 col-sm-12">
+            <img
+              class="building-img p-2"
+              src="{{ building?.buildingImg }}"
+              alt=""
+            />
+          </div>
+          <div class="col-6 col-md-6 col-sm-12 p-3">
+            <h2 class="card-title text-uppercase">
+              Tòa nhà {{ building?.buildingName }}
+            </h2>
+            <p class="card-content">
+              {{ building?.description }}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+              sint, sapiente voluptate neque eum dolore quae. Quo inventore ad
+              aliquam quod temporibus aliquid explicabo quas? Aspernatur
+              quibusdam cupiditate fugiat ratione! Numquam libero consequuntur
+              nulla eveniet distinctio? Amet nobis tempore commodi mollitia
+              nihil ratione exercitationem repudiandae quo repellat minima quod
+              a, nisi rerum delectus dicta neque ipsa illo quasi, iusto beatae!
+              Est eius doloremque id atque dolor saepe facilis ab aliquam sint
+              sed voluptates voluptas maiores tempore quia sunt mollitia
+              expedita, qui praesentium illo modi blanditiis? Nulla, mollitia.
+              Deserunt, repudiandae itaque?
+            </p>
+            <p class="room mt-2 p-3">
+              <i class="pi pi-home me-2"></i>
+              {{ building?.totalRoom }} phòng
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 ps-5">
+      <h2 class="mt-5 mb-5 fs-1">Danh sách phòng</h2>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12">
+          <div class="row">
+            <div class="search col-5 col-sm-5 col-md-5 col-lg-5">
+              <form class="search">
+                <app-svg-icon
+                  [src]="icon.searchIc"
+                  class="fasearch"
+                ></app-svg-icon>
+                <input
+                  type="search"
+                  class="form-control rounded-1"
+                  placeholder="Search"
+                />
+              </form>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12">
+            <div class="card mt-5 ms-2 me-2 p-3">
+              <p-table [value]="rooms" [tableStyle]="{ 'min-width': '60rem' }">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th class="room-name" pSortableColumn="roomName">
+                      Name <p-sortIcon field="roomName" />
+                    </th>
+                    <th>Image</th>
+                    <th class="status" pSortableColumn="status">
+                      Status <p-sortIcon field="status" />
+                    </th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-room>
+                  <tr>
+                    <td>{{ room.roomName }}</td>
+                    <td>
+                      <img
+                        [src]="room.roomImg"
+                        [alt]="room.roomName"
+                        width="100"
+                        class="shadow-4"
+                      />
+                    </td>
+                    <td>
+                      <div *ngIf="room.status == 'Available'">
+                        <p-tag [value]="room.status" severity="success" />
+                      </div>
+                      <div *ngIf="room.status == 'Vacancy'">
+                        <p-tag [value]="room.status" severity="danger" />
+                      </div>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

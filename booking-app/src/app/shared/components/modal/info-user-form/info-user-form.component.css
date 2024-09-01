@@ -1,0 +1,52 @@
+.wrapper_info {
+    padding: 1rem;
+    min-width: 386px
+}
+
+@media (max-width: 991.98px) { 
+    .wrapper_info {
+        display: none;
+    }
+ }
+
+.background_cover{
+    height: 8rem;
+    background: #100f0c;
+}
+
+.avatar_info img{
+ top: 4rem;
+ left: 1rem
+}
+.describe_info {
+    margin-top: 1rem;
+}
+
+.content_info {
+    padding-bottom: 3rem;
+}
+
+.content_info_personal {
+    
+}
+
+.content_info_personal>p+p {
+}
+
+.content_info_common p{
+    margin: 0.5rem 0;
+}
+
+/* <!-- EXIST  --> */
+.pharagraph_under_room{
+    font-size: 0.8rem;
+}
+
+.pharagraph_under_room .bettween_room_slot::before,
+.pharagraph_under_room .bettween_room_slot::after{
+    content:'•';
+    font-size: 1.4rem;
+    margin: 0 0.3rem;
+    position: relative;
+    top: 6px;
+}

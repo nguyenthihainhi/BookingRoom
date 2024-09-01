@@ -1,0 +1,25 @@
+<p-multiSelect 
+    [styleClass]="styleClass"
+    [options]="data" 
+    [(ngModel)]="selectedData" 
+    [placeholder]="placeholder"
+    [group]="isGroup"
+    [disabled]="disabled" 
+    [scrollHeight]="scrollHeight"
+    [filter]="true" 
+    optionLabel="label" 
+    display="chip" 
+    >
+
+    <!-- <ng-template let-group pTemplate="group">
+        <div class="flex align-items-center">
+            <img 
+                src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg" 
+                [class]="'mr-2 flag flag-' + group.value" 
+                style="width: 20px" />
+            <span>{{ group.label }}</span>
+        </div>
+    </ng-template> -->
+    
+</p-multiSelect>
+    
