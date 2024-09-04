@@ -1,15 +1,20 @@
-import {  Component, Input, OnDestroy, OnInit, signal, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, signal } from '@angular/core';
 import { TABTABLEUSER } from '../../../core/config/tableUser.config';
 import { icons } from '../../../core/config/icons.config';
 import { ItableColumn, ITableItem, TableUser } from '../../../core/config/table.config';
-import { ConfirmDialog } from 'primeng/confirmdialog';
 import { columns, data, demoUser, genders, majors, provinces, semesters, status, tabSelectButton } from '../../../core/utils/dummyData';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddUserComponent } from '../../../shared/components/modal/add-user/add-user.component';
-import { AnonymousComponent } from '../../../shared/components/anonymous/anonymous.component';
 import { InfoUserFormComponent } from '../../../shared/components/modal/info-user-form/info-user-form.component';
 import { UpdateUserComponent } from '../../../shared/components/modal/update-user/update-user.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { filterUser, pagination, User } from '../store/admin.states';
+import { selectFilter, selectPagination, selectUser } from '../store/admin.feature';
+import { Observable } from 'rxjs';
+import { filterUsers, loadUsers } from '../store/admin.actions';
+import { AppState } from '../../../core/app.state';
 
 @Component({
   selector: 'app-manage-user',
@@ -44,9 +49,18 @@ export class ManageUserComponent implements OnInit, OnDestroy {
   }
 
 
-  // @ViewChild('confirmDelete') modalConfirmDialog?: ConfirmDialogComponent;
+  // test list
+  public listUser$: Observable<User[]>;
+  public pagination$: Observable<pagination>;
+  public filter$: Observable<filterUser | null>;
+
+  searchText: string = '';
+
+  // test list
+
 
   //declare variable and reference
+
   /**DynamicDialogRef:  provide some method to interacting with and managing a dynamically 
    * created DynamicDialog component
   */
@@ -55,14 +69,40 @@ export class ManageUserComponent implements OnInit, OnDestroy {
   constructor(
     public dialogService: DialogService,
     private confirmationService: ConfirmationService,
-     private messageService: MessageService
-  ) { }
+    private messageService: MessageService,
+    private store: Store<AppState>
+  ) {
+    this.listUser$ = this.store.select(selectUser);
+    this.pagination$ = this.store.select(selectPagination);
+    this.filter$ = this.store.select(selectFilter);
+  }
 
   ngOnInit() {
     this._selectedColumns = this.columns;
+    this.store.dispatch(loadUsers());
+
   }
 
 
+
+  // test list
+  //test search
+  handleSearchListUser() {
+    let searchQuery = this.searchText;
+    let filterDemo: filterUser = {
+      search: searchQuery
+    }
+    this.store.dispatch(filterUsers({filter: filterDemo}))
+
+  }
+  //test search
+  // test list
+
+
+  /**
+   * puporse: show dialog add user
+   * service: dialogService primeng
+   */
   openModalAddUser() {
     this.dynaref = this.dialogService.open(AddUserComponent,
       {
@@ -74,7 +114,7 @@ export class ManageUserComponent implements OnInit, OnDestroy {
           '1199px': '75vw', '575px': '90vw'
         }
       },
-    ) 
+    )
     this.dynaref.onClose.subscribe({
       next: () => {
         console.log('>>> close: ok close component this');
@@ -82,36 +122,46 @@ export class ManageUserComponent implements OnInit, OnDestroy {
     })
   }
 
+  /**
+ * puporse: show dialog confrm delele a record
+ * service: confirmationService primeng
+ */
   handleConfirmDeleteRecord(data: ITableItem) {
     this.confirmationService.confirm({
       message: `Bạn có muốn xóa người dùng ${data['name']}?`,
       header: 'Xác nhận xóa người dùng',
       icon: 'pi pi-info-circle',
-      acceptButtonStyleClass:"p-button-danger p-button-text px-2 py-1",
-      rejectButtonStyleClass:"p-button-text p-button-text px-2 py-1",
-      acceptIcon:"none",
-      rejectIcon:"none",
+      acceptButtonStyleClass: "p-button-danger p-button-text px-2 py-1",
+      rejectButtonStyleClass: "p-button-text p-button-text px-2 py-1",
+      acceptIcon: "none",
+      rejectIcon: "none",
 
       accept: () => {
-          this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Đã xóa người dùng này' });
+        this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Đã xóa người dùng này' });
       },
       reject: () => {
-          this.messageService.add({ severity: 'info', summary: 'Rejected', detail: 'Bạn đã từ bỏ ý định' });
+        this.messageService.add({ severity: 'info', summary: 'Rejected', detail: 'Bạn đã từ bỏ ý định' });
       }
-  });
+    });
   }
+
+
+  /**
+ * puporse: show dialog update user
+ * service: dialogService primeng
+ */
   openModalUpdateUser(data: ITableItem) {
     this.dynaref = this.dialogService.open(UpdateUserComponent,
       {
         header: `Chỉnh sửa người dùng ${data['name']}`,
         width: '30vw',
         modal: true,
-        contentStyle: {"overflow": "auto"},
+        contentStyle: { "overflow": "auto" },
         breakpoints: {
           '1199px': '75vw', '575px': '90vw'
         }
       },
-    ) 
+    )
     this.dynaref.onClose.subscribe({
       next: () => {
         console.log('>>> close: ok close component this');
@@ -121,23 +171,14 @@ export class ManageUserComponent implements OnInit, OnDestroy {
   }
 
 
-  // confirmDialog(dialog: ConfirmDialog) {
-  //   dialog.accept();
-  //   console.log('Confirmed');
-  // }
 
-  // cancelDialog(dialog: ConfirmDialog) {
-  //   dialog.reject();
-  //   console.log('Reject');
-  // }
-
-  toggleFilter() {
-    this.isShowFilter = !this.isShowFilter;
-  }
-
-  getDetailRecord(data: TableUser){
+  /**
+* puporse: show dialog detail user
+* service: dialogService primeng
+*/
+  getDetailRecord(data: TableUser) {
     this.dynaref = this.dialogService.open(InfoUserFormComponent,
-      
+
       {
         data: data,
         header: `Người dùng ${data['name']}`,
@@ -148,7 +189,7 @@ export class ManageUserComponent implements OnInit, OnDestroy {
           '1199px': '75vw', '575px': '90vw'
         }
       },
-    ) 
+    )
     this.dynaref.onClose.subscribe({
       next: () => {
         console.log('>>> close: ok close component this');
@@ -156,6 +197,16 @@ export class ManageUserComponent implements OnInit, OnDestroy {
     })
   }
 
+
+  /**
+ * puporse: show filter user
+ * service: none
+ */
+  toggleFilter() {
+    this.isShowFilter = !this.isShowFilter;
+  }
+
   ngOnDestroy(): void {
   }
+
 }

@@ -1,6 +1,9 @@
 <button pButton [iconPos]="posIcon" [type]="btnType" [ngClass]="ngClass" [disabled]="disable" [raised]="raised"
     [rounded]="rounded" [text]="textxual" [outlined]="outlined" [size]="size"
-    [style]="{ fontSize: fontSize, color: colorText, backgroundColor: bgColor, border: borderr}">
+    [style]="{ fontSize: fontSize, color: colorText, backgroundColor: bgColor, border: borderr}"
+    (click)="handleClick($event)" 
+    [loading]="loading"
+    >
     <ng-content select="pos-left" />
     {{label}}
     <ng-content select="pos-right" />

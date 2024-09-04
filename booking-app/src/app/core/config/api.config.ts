@@ -1,9 +1,18 @@
 export interface BaseResponseApi<T> {
-    data: T;
-    usermessage: string;
-    devmessage: string;
-    statusCode: number;
+  code: number;
+  data: T;
+  message: string;
+  success: boolean;
+  errors: string;
 }
+
+export interface BaseResponseRecords<T> {
+  pageIndex: number;
+  pageSize: number;
+  totalCount: number;
+  items: T[];
+}
+
 
 
 export const CommonSlugs = {
@@ -11,12 +20,13 @@ export const CommonSlugs = {
   
   export const AuthSlugs = {
     LoginStudent: 'abc',
-    LoginOther: '/auth/login',
+    LoginOther: 'auth/login',
   } as const;
   
   export const AdminSlugs = {
     CreateUser: 'createUser',
     DeleteUser: 'deleteUser',
+    LoadUser: 'user'
   } as const;
   
   export const StudentSlugs = {

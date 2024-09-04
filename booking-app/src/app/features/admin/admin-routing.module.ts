@@ -15,6 +15,7 @@ const routes: Routes = [
       { path: 'dashboard', component: AnonymousComponent, title: 'Trang Điều khiển', data: { breadcrumb: ROUTERADMIN['dashboard'] } },
       { path: 'dashboard/manage-user', component: ManageUserComponent, title: 'Quản lý người dùng', data: { breadcrumb: ROUTERADMIN['dashboard/manage-user'] } },
       { path: 'dashboard/manage-role', component: AnonymousComponent, title: 'Quản lý vai trò', data: { breadcrumb: ROUTERADMIN['dashboard/manage-role'] } },
+      { path: 'dashboard/manage-build', component: AnonymousComponent, title: 'Quản lý tòa nhà', data: { breadcrumb: ROUTERADMIN['dashboard/manage-build'] } },
       { path: 'dashboard/manage-build', component: ManageBuildingComponent, title: 'Quản lý tòa nhà', data: { breadcrumb: ROUTERADMIN['dashboard/manage-build'] } },
       { path: 'dashboard/manage-build/:id', component: BuildingDetailComponent, title: 'Quản lý phòng', data: { breadcrumb: ROUTERADMIN['dashboard/manage-build'] } },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
