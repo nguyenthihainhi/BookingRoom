@@ -7,17 +7,25 @@ import { ApiSlugs } from '../utils/constant';
 import { ApiType } from '../config/api.config';
 import { getSlug } from '../utils/helper';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  static apiType: ApiType = 'auth';
+  readonly APITYPE: ApiType = 'auth';
+  readonly LOGINOTHER = 'LoginOther';
+  
   constructor(private httpClient: AppHttpClientService) { }
 
 
   loginWithFull(data: ILoginRequest): Observable<any> {
-    return this.httpClient.post(getSlug(AuthService.apiType, 'LoginOther'), data);
+    return this.httpClient.post(getSlug(this.APITYPE, this.LOGINOTHER), data);
   }
+  testLogin(data: any): Observable<any> {
+    return this.httpClient.post('https://dummyjson.com/auth/login', data)
+
+  }
+
 
   
 }

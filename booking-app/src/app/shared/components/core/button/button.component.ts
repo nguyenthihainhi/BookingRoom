@@ -23,6 +23,7 @@ export class ButtonComponent {
   @Input() borderr: string = 'none';
   @Input() colorText: string = 'var(--highlight-text-color)';
   @Input() bgColor: string = 'var(--highlight-bg)';
+  @Input() loading: boolean = false;
 
   @Output('handleClickButton') eventClick: EventEmitter<any> = new EventEmitter();
 
