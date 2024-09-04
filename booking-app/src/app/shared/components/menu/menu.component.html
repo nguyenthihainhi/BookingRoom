@@ -1,84 +1,80 @@
 <div class="px-sm-2 px-0">
-    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+    <div class="d-flex flex-column align-items-center align-items-sm-start px-1 pt-4 text-white min-vh-100">
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li class="nav-item">
-                <a href="#" class="nav-link align-middle px-0">
-                    <app-svg-icon [src]="icon.humberger"></app-svg-icon>
-                    <span class="ms-1 d-none d-sm-inline">Home</span>
+                <a href="#" class="nav-link align-middle"  pTooltip="Trang điều khiển" tooltipPosition="right"
+                 [tooltipDisabled]=!isShowSidebar>
+                    <span class="pi pi-desktop"></span>
+                    <span class="ms-3 d-none d-sm-inline">Trang điều khiển</span>
                 </a>
             </li>
-            <li>
-                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                    <app-svg-icon [src]="icon.humberger"></app-svg-icon>
-                    <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+            <li class="nav-item">
+                <a href="#submenu1" data-bs-toggle="collapse" pTooltip="Quản lý người dùng" tooltipPosition="right"
+                [tooltipDisabled]=!isShowSidebar
+                    class="accordion-link nav-link align-middle position-relative">
+                    <span class="pi pi-user"></span>
+                    <span class="ms-3 d-none d-sm-inline">Quản lý người dùng</span>
+                    <span class="pi pi-chevron-down  arrow_listener"></span>
+                </a>
+                <!-- collapse show -->
                 <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                        <a href="#" class="nav-link"> <span class="d-none d-sm-inline">Danh sách người
+                                dùng</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                        <a href="#" class="nav-link"> <span class="d-none d-sm-inline">Tạo mới người
+                                dùng</span></a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#" class="nav-link px-0 align-middle">
-                    <app-svg-icon [src]="icon.humberger"></app-svg-icon>
-                    <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+            <li class="nav-item">
+                <a href="#" class="nav-link align-middle" pTooltip="Link 1" tooltipPosition="right"
+                [tooltipDisabled]=!isShowSidebar>
+                    <span class="pi pi-send"></span>
+                    <span class="ms-3 d-none d-sm-inline">Link1</span></a>
             </li>
-            <li>
-                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                    <app-svg-icon [src]="icon.humberger"></app-svg-icon>
-                    <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
+            <li class="nav-item">
+                <a href="#submenu2" data-bs-toggle="collapse" pTooltip="Quản lý vai trò" tooltipPosition="right"
+                [tooltipDisabled]=!isShowSidebar
+                    class="accordion-link nav-link align-middle position-relative">
+                    <span class="pi pi-inbox"></span>
+                    <span class="ms-3 d-none d-sm-inline">Quản lý vai trò</span>
+                    <span class="pi  pi-chevron-down arrow_listener"></span>
+                </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                        <a href="#" class="nav-link"> <span class="d-none d-sm-inline">Item</span> 1</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                        <a href="#" class="nav-link"> <span class="d-none d-sm-inline">Item</span> 2</a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                    <app-svg-icon [src]="icon.humberger"></app-svg-icon>
-                    <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+            <li class="nav-item">
+                <a href="#submenu3" data-bs-toggle="collapse" pTooltip="Quản lý tòa nhà" tooltipPosition="right"
+                [tooltipDisabled]=!isShowSidebar
+                    class="accordion-link nav-link align-middle position-relative">
+                    <span class="pi pi-home"></span>
+                    <span class="ms-3 d-none d-sm-inline">Quản lý tòa nhà</span>
+                    <span class="pi pi-chevron-down arrow_listener"></span>
+                </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                        <a href="#" class="nav-link"> <span class="d-none d-sm-inline">Danh sách tòa nhà</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                        <a href="#" class="nav-link"> <span class="d-none d-sm-inline">Tạo mới tòa nhà</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                        <a href="#" class="nav-link"> <span class="d-none d-sm-inline">Link1</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                        <a href="#" class="nav-link"> <span class="d-none d-sm-inline">Link2</span></a>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <a href="#" class="nav-link px-0 align-middle">
-                    <app-svg-icon [src]="icon.humberger"></app-svg-icon>
-                    <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
             </li>
         </ul>
         <hr>
-        <div class="dropdown pb-4">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                <span class="d-none d-sm-inline mx-1">loser</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-        </div>
     </div>
 </div>

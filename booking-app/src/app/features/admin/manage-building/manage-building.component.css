@@ -1,0 +1,52 @@
+:host {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-top: 1.5rem;
+  height: calc(100vh - 6rem);
+  width: 100vw;
+}
+
+/* search */
+.search {
+  position: relative;
+}
+
+.search input {
+  height: 3rem;
+  text-indent: 35px;
+  border: 2px solid #d6d4d4;
+}
+
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid blue;
+}
+
+.search .fasearch {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+/* overide primeng */
+
+::ng-deep .p-dialog-content {
+  overflow: revert;
+}
+:host ::ng-deep .p-togglebutton.p-button.p-ripple.p-element {
+  background-color: var(--oragne100);
+  border-color: var(--oragne700);
+  color: var(--oragne700);
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+}
+:host ::ng-deep .p-togglebutton.p-button.p-highlight {
+  background-color: var(--green100) !important;
+  border-color: var(--green700) !important;
+  color: var(--green700) !important;
+}
+:host ::ng-deep .p-button-label {
+  font-size: 10px !important;
+  font-weight: 20px;
+}
