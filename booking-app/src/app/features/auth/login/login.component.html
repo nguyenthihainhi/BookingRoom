@@ -1,21 +1,72 @@
-<div class="hero-wrapper"></div>
-<div class="login-form card p-5">
-  <input type="text" >
-  <select class="form-select" id="campus" [(ngModel)]="selectedCampus">
-    <option disabled [selected]>Select Campus</option>
-    <option *ngFor="let cam of campusList" [value]="cam.campusId">
-      {{ cam.name }}
-    </option>
-  </select>
-  <p class="text-light text-center mt-1">
-    Với sinh viên từ K19 đăng nhập với FEID
-  </p>
-  <button class="btn btn-danger mt-3">
-    <i class="fab fa-google-plus-g me-2"></i>
-    Login With Google
-  </button>
-  <button class="btn btn-primary mt-3">
-    <i class="far fa-envelope me-2"></i>
-    Login With FeID
-  </button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-12 form-login">
+      <img
+        class="mt-5"
+        src="assets/images/logo_for_student.png"
+        alt="image-logo"
+        width="600"
+      />
+      <div class="divider-wrapper mb-5">
+        <div class="divider"></div>
+      </div>
+      <div class="d-flex justify-content-between mb-4">
+        <app-svg-icon
+          class="icon-wapper me-4"
+          [src]="icons.buildings"
+          ngProjectAs="pos-left"
+        ></app-svg-icon>
+        <p class="fw-light fs-4">
+          <b>Đăng nhập</b> và <b>đặt phòng</b> chỉ bằng cú click chuột!
+        </p>
+      </div>
+      <app-google-signin
+        (loginWithGoogle)="googleSignin($event)"
+      ></app-google-signin>
+      <app-button
+        label="Đăng nhập với FeID"
+        ngClass="py-2 w-100 d-block"
+        btnType="button"
+        borderr="1px solid gray"
+        bgColor="var(--surface-0)"
+        colorText="var(--surface-500)"
+      >
+        <app-svg-icon [src]="icons.email" ngProjectAs="pos-left"></app-svg-icon>
+      </app-button>
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-12">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-inner">
+            <div
+              *ngFor="let item of items; let i = index"
+              class="carousel-item"
+              [class.active]="i === activeIndex"
+            >
+              <img
+                [src]="item.image"
+                class="d-block w-100 carousel-image"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <p class="fs-3 fw-normal content-text">
+                  "Các bạn hãy học tập và kiên trì tư duy vì kiến thức học ở đại
+                  học như một nền tảng vững chắc để giúp các bạn phát triển bất
+                  kì ngành nghề nào sau này. Chỉ cần làm chủ được tri thức chắc
+                  chắn sẽ thành công."
+                </p>
+                <p class="float-end fw-lighter fs-5">
+                  Cán bộ phòng quản lý sinh viên
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

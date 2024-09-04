@@ -1,5 +1,5 @@
 :host button {
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 :host:hover button {
@@ -8,7 +8,6 @@
     font-weight: 700;
 }
 
-
-:host:active button{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+:host:active button {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

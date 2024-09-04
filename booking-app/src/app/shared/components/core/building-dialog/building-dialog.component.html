@@ -1,0 +1,80 @@
+<p-dialog
+  [header]="header"
+  [modal]="true"
+  [(visible)]="visible"
+  [position]="position"
+  [style]="{ width: '50rem', height: '100rem' }"
+  (onHide)="onCancel()"
+>
+  <!-- Building Form -->
+  <div class="form-group d-flex justify-content-between">
+    <p-floatLabel>
+      <input
+        pInputText
+        id="buildingName"
+        ngClass="input-building"
+        [(ngModel)]="building.buildingName"
+      />
+      <label for="buildingName">Building Name</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <p-inputNumber
+        id="totalRoom"
+        [(ngModel)]="building.totalRoom"
+        [showButtons]="true"
+        inputId="minmax-buttons"
+        [min]="0"
+        [max]="100"
+      />
+      <label for="totalRoom">Total Rooms</label>
+    </p-floatLabel>
+  </div>
+  <div class="form-group mt-3">
+    <label for="description">Description</label>
+    <p-editor
+      [(ngModel)]="building.description"
+      id="description"
+      name="description"
+      [style]="{ height: '100px' }"
+      ngClass="form-control"
+    />
+  </div>
+  <div class="form-group mt-3">
+    <label for="buildingImg">Building Image URL</label>
+    <input
+      type="text"
+      id="buildingImg"
+      [(ngModel)]="building.buildingImg"
+      name="buildingImg"
+      required
+      class="form-control"
+    />
+  </div>
+  <div *ngIf="building.buildingImg">
+    <img
+      class="mt-3"
+      width="300px"
+      height="200px"
+      src="{{ building.buildingImg }}"
+      alt=""
+    />
+  </div>
+
+  <!-- Allows content projection from parent -->
+  <div class="flex justify-content-end gap-2 mt-3">
+    <p-button
+      [text]="true"
+      [raised]="true"
+      severity="danger"
+      label="Cancel"
+      (onClick)="onCancel()"
+    />
+    <p-button
+      ngClass="ms-2"
+      [text]="true"
+      [raised]="true"
+      label="Save"
+      (onClick)="onSave()"
+    />
+  </div>
+</p-dialog>

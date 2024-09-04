@@ -166,7 +166,6 @@ export class AppHttpClientService {
         httpParams.append(key, params[key]);
       }
     }
-    console.log(httpParams);
     return httpParams;
   }
 

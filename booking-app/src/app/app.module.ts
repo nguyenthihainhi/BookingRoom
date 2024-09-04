@@ -1,6 +1,6 @@
 import { NgModule, isDevMode} from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { AppRoutingModule, routes } from './app-routing.module';
@@ -35,7 +35,7 @@ import { responseInterceptor } from './core/interceptors/response.interceptor';
     // SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule,
+    // SharedModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),

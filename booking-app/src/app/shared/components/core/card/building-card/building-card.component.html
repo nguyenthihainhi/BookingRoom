@@ -1,0 +1,40 @@
+<div class="card">
+  <img
+    [routerLink]="[building.buildingId]"
+    height="220px"
+    [src]="building.buildingImg"
+    alt="{{ building.buildingName }}"
+  />
+  <div class="icon-items position-absolute top-0 end-0 mt-4 me-2">
+    <button
+      type="button"
+      name=""
+      id=""
+      class="btn btn-light"
+      (click)="onUpdate(); $event.stopPropagation()"
+    >
+      <span class="pi pi-pencil"></span>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="d-flex justify-content-between flex-sm-wrap">
+      <div class="content">
+        <h5 class="card-title">Tòa {{ building.buildingName }}</h5>
+        <div class="d-flex p-1">
+          <app-svg-icon [src]="icon.campus" class="fabuilding"></app-svg-icon>
+          <p class="campus">FPT- Hòa Lạc</p>
+        </div>
+      </div>
+      <p-toggleButton
+        [(ngModel)]="checked"
+        onLabel="{{ onLabel }}"
+        offLabel="{{ offLabel }}"
+        (onChange)="confirmToggle($event)"
+      />
+    </div>
+    <p class="room mt-2">
+      <i class="pi pi-home"></i>
+      {{ building.totalRoom }} phòng
+    </p>
+  </div>
+</div>
