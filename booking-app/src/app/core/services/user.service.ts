@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AppHttpClientService } from './app-http-client.service';
-import { getSlug } from '../utils/helper';
-import { AdminSlugs, ApiType, BaseResponseRecords } from '../config/api.config';
-import { IDummy } from '../config';
 import { Observable } from 'rxjs';
 import { User } from '../../features/admin/store/admin.states';
+import { BaseResponseRecords } from '../interfaces/api.interface';
+import { IDummy } from '../interfaces/anonymous.interface';
+import { AdminSlugs } from '../config/api.config';
 
 
 //test interface
@@ -14,7 +14,6 @@ import { User } from '../../features/admin/store/admin.states';
   providedIn: 'root'
 })
 export class UserService {
-  readonly APITYPE: ApiType = 'admin';
   constructor(private httpClient: AppHttpClientService) { }
 
 
@@ -22,8 +21,9 @@ export class UserService {
   ): Observable<BaseResponseRecords<User>> {
 
     return this.httpClient.get<BaseResponseRecords<User>>(
-      // getSlug(this.APITYPE, AdminSlugs.LoadUser),
-      'https://dummyjson.com/c/5b3d-75b4-47e0-8c73')
+      AdminSlugs.LoadUser,
+      // 'https://dummyjson.com/c/5b3d-75b4-47e0-8c73'
+    )
   }
 
 
@@ -48,15 +48,16 @@ export class UserService {
     )
 
     return this.httpClient.get<BaseResponseRecords<User>>(
-      // getSlug(this.APITYPE, AdminSlugs.LoadUser),
-      'https://dummyjson.com/c/5b3d-75b4-47e0-8c73', filterParams)
+      AdminSlugs.LoadUser
+      // 'https://dummyjson.com/c/5b3d-75b4-47e0-8c73'
+      , filterParams)
   }
 
   getPagedUsers(
     pageSize: number,
     pageIndex: number
   ): Observable<BaseResponseRecords<User>> {
-   
+
     //select tới filter nếu có thì thêm vào param 
     //vì chuyển trang có thể 2 hướng: 1 có filter r, 2 chưa filter
 
@@ -65,7 +66,8 @@ export class UserService {
       PageIndex: pageIndex
     };
     return this.httpClient.get<BaseResponseRecords<User>>(
-      'https://dummyjson.com/c/5b3d-75b4-47e0-8c73',
+      AdminSlugs.LoadUser,
+      // 'https://dummyjson.com/c/5b3d-75b4-47e0-8c73',
       { params }
     )
   }

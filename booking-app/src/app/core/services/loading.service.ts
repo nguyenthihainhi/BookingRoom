@@ -35,6 +35,6 @@ export class LoadingService {
     if (this.loadingMap.size === 0) {
       this.loadingSub.next(false);
     }
-    console.log(this.loadingMap);
+    // console.log(this.loadingMap);
   }
 }

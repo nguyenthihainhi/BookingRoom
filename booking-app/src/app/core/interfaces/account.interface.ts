@@ -1,5 +1,5 @@
 import { USER_ROLE } from "../utils/constant";
-import { IHistoryRoom } from "./Room.config";
+import { IHistoryRoom } from "./room.interface";
 
 export interface ILoginRequest {
   email: string;

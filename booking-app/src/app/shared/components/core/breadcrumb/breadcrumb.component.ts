@@ -20,7 +20,7 @@ export class BreadcrumbComponent implements OnInit {
       this.breadcrumbs = breadcrumbs;
     });
 
-    console.log(this.breadcrumbs);
+    // console.log(this.breadcrumbs);
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();
     })

@@ -49,10 +49,11 @@ import { UpdateUserComponent } from './components/modal/update-user/update-user.
 import { ConfirmDialogComponent } from './components/core/confirm-dialog/confirm-dialog.component';
 import { BuildingCardComponent } from './components/core/card/building-card/building-card.component';
 import { BuildingDialogComponent } from './components/core/building-dialog/building-dialog.component';
+import { MainLayoutComponent } from './components/layout/main-layout/main-layout.component';
 // import { BuildingDialogComponent } from './components/core/dialog/building-dialog/building-dialog.component ';
 @NgModule({
   declarations: [ButtonComponent, SvgIconComponent, HeaderComponent, MenuComponent, AnonymousComponent, BreadcrumbComponent, InfoUserFormComponent, TabViewComponent, SelectButtonComponent, TableComponent, MultiSelectComponent, DialogComponent, AddUserComponent, UpdateUserComponent
-    , ConfirmDialogComponent, GoogleSigninComponent, BuildingCardComponent, BuildingDialogComponent, ],
+    , ConfirmDialogComponent, GoogleSigninComponent, BuildingCardComponent, BuildingDialogComponent, MainLayoutComponent ],
   imports: [
     CommonModule, FormsModule, ButtonModule, PanelMenuModule, BadgeModule, RippleModule, TagModule, BreadcrumbModule, TabViewModule, SelectButtonModule, TableModule, MultiSelectModule, DialogModule, ToastModule, DynamicDialogModule, ConfirmDialogModule, DropdownModule, ToggleButtonModule,
     ReactiveFormsModule, EditorModule, InputTextModule, FloatLabelModule, InputNumberModule, 

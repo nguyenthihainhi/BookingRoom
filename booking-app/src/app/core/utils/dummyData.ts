@@ -1,9 +1,10 @@
 import { SelectItem, SelectItemGroup } from "primeng/api"
-import { IAccount, IStudentProfile } from "../config/account.config"
 import { USER_ROLE } from "./constant"
-import { SELECTBUTTON, TABTABLEUSER } from "../config/tableUser.config"
-import { ItableColumn, ITableItem } from "../config/table.config"
 import { statusObject } from "./helper"
+import { IAccount, IStudentProfile } from "../interfaces/account.interface"
+import { SELECTBUTTON } from "../interfaces/anonymous.interface"
+import { TABTABLEUSER } from "../config/tableUser.config"
+import { ItableColumn, ITableItem } from "../interfaces/table.interface"
 
   //semester
   export const semesters: SelectItem[] = [

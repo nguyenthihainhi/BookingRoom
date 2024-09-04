@@ -1,9 +1,8 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { BaseResponseApi } from '../config/api.config';
-import { IDummy } from '../config';
 import { environment } from '../../../environments/environment.development';
+import { IDummy } from '../interfaces/anonymous.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +13,19 @@ import { environment } from '../../../environments/environment.development';
  * purpose: create a base class that communicates the api with the backend
  */
 export class AppHttpClientService {
-    static prefix = environment.apiUrl;
+  static prefix = environment.apiUrl;
 
   constructor(
     protected httpClient: HttpClient,
   ) { }
-/**
- * 
- * @param uri 
- * @param params 
- * @param configs 
- * @returns observable
- * @base request get http
- */
+  /**
+   * 
+   * @param uri 
+   * @param params 
+   * @param configs 
+   * @returns observable
+   * @base request get http
+   */
   get<T>(
     uri: string,
     params = {},
@@ -85,7 +84,7 @@ export class AppHttpClientService {
     data: null | IDummy = null,
     configs: any = {}
   ): Observable<T> {
-    return this.httpClient.put<T>(this.prefixUri(uri),data, {
+    return this.httpClient.put<T>(this.prefixUri(uri), data, {
       reportProgress: configs.reportProgress,
       headers: this.generateHttpHeaders(configs.headers, configs.isMultiPart)
     }).pipe(
@@ -113,7 +112,6 @@ export class AppHttpClientService {
       headers: this.generateHttpHeaders(configs.headers)
     }).pipe(
       catchError((err) => {
-        console.log('line 37:', err.message);
         return this.handleError(err.message);
       })
     );
@@ -130,7 +128,7 @@ export class AppHttpClientService {
   delete<T>(
     uri: string,
   ): Observable<T> {
-    return this.httpClient.delete<T>(this.prefixUri(uri),{
+    return this.httpClient.delete<T>(this.prefixUri(uri), {
       headers: this.generateHttpHeaders()
     }).pipe(
       catchError((err) => {
@@ -152,7 +150,7 @@ export class AppHttpClientService {
   }
 
 
-  private generateHttpParams(params: IDummy) {
+  private generateHttpParams(params: IDummy): HttpParams {
     let httpParams = new HttpParams();
 
     for (const key in params) {
@@ -163,7 +161,7 @@ export class AppHttpClientService {
         /**
          * concatenate param string for object
          */
-        httpParams.append(key, params[key]);
+        httpParams = httpParams.append(key, params[key]);
       }
     }
     return httpParams;

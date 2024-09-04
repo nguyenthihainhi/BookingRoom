@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { cellStyles, ItableColumn, ITableItem, TableUser } from '../../../../core/config/table.config';
 import { TableRowSelectEvent } from 'primeng/table';
+import { ItableColumn, ITableItem, TableUser } from '../../../../core/interfaces/table.interface';
+import { cellStyles } from '../../../../core/config/table.config';
 
 @Component({
   selector: 'app-table',

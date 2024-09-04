@@ -1,7 +1,6 @@
 import { Component, Input, OnDestroy, OnInit, signal } from '@angular/core';
 import { TABTABLEUSER } from '../../../core/config/tableUser.config';
 import { icons } from '../../../core/config/icons.config';
-import { ItableColumn, ITableItem, TableUser } from '../../../core/config/table.config';
 import { columns, data, demoUser, genders, majors, provinces, semesters, status, tabSelectButton } from '../../../core/utils/dummyData';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddUserComponent } from '../../../shared/components/modal/add-user/add-user.component';
@@ -15,6 +14,7 @@ import { selectFilter, selectPagination, selectUser } from '../store/admin.featu
 import { Observable } from 'rxjs';
 import { filterUsers, loadUsers } from '../store/admin.actions';
 import { AppState } from '../../../core/app.state';
+import { ItableColumn, ITableItem, TableUser } from '../../../core/interfaces/table.interface';
 
 @Component({
   selector: 'app-manage-user',

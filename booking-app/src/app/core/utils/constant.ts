@@ -1,4 +1,6 @@
-import { AdminSlugs, ApiType, AuthSlugs, CommonSlugs, StaffSlugs, StudentSlugs } from "../config/api.config";
+import { AdminSlugs,  AuthSlugs, CommonSlugs, StaffSlugs, StudentSlugs } from "../config/api.config";
+import { ApiType } from "../interfaces/api.interface";
+import { BREADCRUMB_ADMIN } from "../interfaces/breadcrumb.interface";
 
 export enum STRING {
   ACCESS_TOKEN = 'access_token',
@@ -12,9 +14,7 @@ export const ROUTERADMIN: BREADCRUMB_ADMIN = {
   'dashboard/manage-build': 'Tòa nhà'
 }
 
-export interface BREADCRUMB_ADMIN {
-  [key: string]: string
-}
+
 
 export enum USER_ROLE {
   ADMIN = 'ADMIN',
