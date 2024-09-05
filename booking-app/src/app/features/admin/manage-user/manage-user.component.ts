@@ -54,7 +54,6 @@ export class ManageUserComponent implements OnInit, OnDestroy {
   public pagination$: Observable<pagination>;
   public filter$: Observable<filterUser | null>;
 
-  searchText: string = '';
 
   // test list
 
@@ -87,8 +86,7 @@ export class ManageUserComponent implements OnInit, OnDestroy {
 
   // test list
   //test search
-  handleSearchListUser() {
-    let searchQuery = this.searchText;
+  handleSearchListUser(searchQuery: string) {
     let filterDemo: filterUser = {
       search: searchQuery
     }
