@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BaseDropDown } from '../../../../core/config';
 import { USER_ROLE } from '../../../../core/utils/constant';
+import { BaseDropDown } from '../../../../core/interfaces/anonymous.interface';
 
 @Component({
   selector: 'app-update-user',

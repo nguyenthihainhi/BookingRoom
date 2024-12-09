@@ -5,7 +5,3 @@ export enum TABTABLEUSER {
     MANAGER = 'nhân viên quản lý'
 }
 
-export interface SELECTBUTTON {
-    label: string, 
-    value: string
-}

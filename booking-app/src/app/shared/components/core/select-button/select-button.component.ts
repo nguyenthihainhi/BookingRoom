@@ -1,6 +1,6 @@
 import { Component, input, signal } from '@angular/core';
-import { SELECTBUTTON, TABTABLEUSER } from '../../../../core/config/tableUser.config';
 import { SelectButtonChangeEvent } from 'primeng/selectbutton';
+import { SELECTBUTTON } from '../../../../core/interfaces/anonymous.interface';
 
 @Component({
   selector: 'app-select-button',

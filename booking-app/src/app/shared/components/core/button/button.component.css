@@ -3,9 +3,9 @@
 }
 
 :host:hover button {
-  /* background-color: var(--oragne200) !important; */
-  /* color: var(--oragne500) !important; */
-  font-weight: 700;
+    /* background-color: var(--oragne200) !important; */
+    /* color: var(--oragne500) !important; */
+    font-weight: 700;
 }
 
 :host:active button {

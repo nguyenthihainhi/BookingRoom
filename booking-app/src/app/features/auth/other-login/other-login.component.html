@@ -39,7 +39,7 @@
                     </label>
                 </div>
             </div>
-            <app-button label="Đăng Nhập" ngClass="py-3 w-100 d-block" btnType="submit" bgColor="var(--orange-500)" [disable]="isBtnDisable"
+            <app-button label="Đăng Nhập" ngClass="py-3 w-100 d-block" btnType="submit" bgColor="var(--orange-500)" [disable]="isBtnDisable" [loading]="isSubmitForm"
                 colorText="var(--surface-0)">
                 <app-svg-icon [src]="icons.arrowRight" ngProjectAs="pos-right"></app-svg-icon>
             </app-button>

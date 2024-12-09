@@ -1,9 +1,4 @@
-export interface BaseResponseApi<T> {
-    data: T;
-    usermessage: string;
-    devmessage: string;
-    statusCode: number;
-}
+
 
 
 export const CommonSlugs = {
@@ -11,12 +6,13 @@ export const CommonSlugs = {
   
   export const AuthSlugs = {
     LoginStudent: 'abc',
-    LoginOther: '/auth/login',
+    LoginOther: 'auth/login',
   } as const;
   
   export const AdminSlugs = {
-    CreateUser: 'createUser',
+    CreateUser: 'user',
     DeleteUser: 'deleteUser',
+    LoadUser: 'User'
   } as const;
   
   export const StudentSlugs = {
@@ -29,6 +25,5 @@ export const CommonSlugs = {
     AssignTask: 'assignTask',
   } as const;
   
-  export type ApiType = 'common' | 'auth' | 'admin' | 'student' | 'staff';
 
 
